@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
-    "svelte": "^3.42.6"
+    "svelte": "^3.42.6",
+    "svelte-paginate": "0.0.1"
   },
   "type": "module"
 }
