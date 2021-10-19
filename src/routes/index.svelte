@@ -86,4 +86,13 @@
     .link {
         text-align: right;
     }
+
+    @media all and (max-width: 600px) {
+        .posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            margin: 30px 0;
+        }        
+    }
 </style>
