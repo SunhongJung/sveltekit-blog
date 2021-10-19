@@ -7,18 +7,18 @@
         // const resPosts = await fetch('https://jsonplaceholder.typicode.com/posts')
         // const allPosts = await resPosts.json()
 
-        const [resUser, resPosts] = await Promise.all([
-            fetch(`https://jsonplaceholder.typicode.com/users/${authorId}`),
-            fetch('https://jsonplaceholder.typicode.com/posts')
-        ])
+        // const [resUser, resPosts] = await Promise.all([
+        //     fetch(`https://jsonplaceholder.typicode.com/users/${authorId}`),
+        //     fetch('https://jsonplaceholder.typicode.com/posts')
+        // ])
 
-        const user = await resUser.json()
-        const allPosts = await resPosts.json()
+        const res = await fetch(`https://jsonplaceholder.typicode.com/users/${authorId}?_embed=posts`)
 
-        const posts = allPosts.filter((p) => p.userId === user.id)
+        const user = await res.json()
+        const posts = user.posts;
 
-
-        console.log(page)
+        // const posts = allPosts.filter((p) => p.userId === user.id)
+        // console.log(page)
 
         return {
             props: {

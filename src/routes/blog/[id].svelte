@@ -1,15 +1,17 @@
 <script context="module">
     export const load = async ({ page, fetch }) => {
         const postId = page.params.id;
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}?_expand=user`)
         const post = await res.json()
 
-        const userId = post.userId;
+        // console.log(post)
+        // const userId = post.userId;
+        // const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+        // const user = await userRes.json()
 
-        const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
-        const user = await userRes.json()
+        const user = post.user
 
-        console.log(page)
+        // console.log(page)
 
         return {
             props: {
